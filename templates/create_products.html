@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products form</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<form action="/save_products/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="Category">Category</label>
+      <select  class="form-control" id="Category" name="Category">
+          {% for i in data4 %}
+          <option value="{{i.id}}">{{i.categoryname}}</option>
+          {% endfor %}
+      </select>
+    </div>
+        </div>
+    <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="SubCategory">SubCategory</label>
+      <select  class="form-control" id="SubCategory" name="SubCategory">
+          {% for k in data5 %}
+          <option value="{{k.id}}">{{k.SubCategoryname}}</option>
+          {% endfor %}
+      </select>
+    </div>
+        </div>
+
+            <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="Productname">Product name</label>
+      <input type="text" class="form-control" id="Productname" name="Product-name">
+    </div>
+
+
+    <div class="form-group col-md-6">
+      <label for="Productimage">product image</label>
+      <input type="file" class="form-control" id="Productimage" name="Product-image">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productprice">product price</label>
+      <input type="text" class="form-control" id="Productprice" name="Product-price">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Productofferprice">product offerprice</label>
+      <input type="text" class="form-control" id="Productofferprice" name="Product-offerprice">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productweight">product weight</label>
+      <input type="text" class="form-control" id="Productweight" name="Product-weight">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productdescription">product decription</label>
+      <input type="text" class="form-control" id="Productdescription" name="Product-description">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="ProductNumofpieces">product No.of pieces</label>
+      <input type="text" class="form-control" id="ProductNumofpieces" name="Product-Numofpieces">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="ProductStockin">product Stock in</label>
+      <input type="text" class="form-control" id="ProductStockin" name="Product-Stockin">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="ProductStockout">product Stock out</label>
+      <input type="text" class="form-control" id="ProductStockout" name="Product-Stockout">
+    </div>
+
+
+
+
+
+            <div class="form-row">
+    <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+            </div>
+        </div>
+            </div>
+</form>
+
+
+</body>
+</html>

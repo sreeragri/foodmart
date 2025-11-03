@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<form action="/update_products/{{data2.id}}" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+ <div class="form-group col-md-6">
+      <label for="Category">Category</label>
+      <select  class="form-control" id="Category" name="Category">
+          <option value="{{data2.category.id}}">{{data2.category.categoryname}}</option>
+          {% for i in cat %}
+          <option value="{{i.id}}">{{i.categoryname}}</option>
+          {% endfor %}
+      </select>
+    </div>
+    <div class="form-row">
+
+      <label for="SubCategory">SubCategory</label>
+      <select  class="form-control" id="SubCategory" name="SubCategory">
+                    <option value="{{data2.SubCategory.id}}">{{data2.SubCategory.SubCategoryname}}</option>
+          {% for k in sub %}
+          <option value="{{k.id}}">{{k.SubCategoryname}}</option>
+          {% endfor %}
+      </select>
+    </div>
+
+                       <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="Productname">Product name</label>
+      <input type="text" class="form-control" id="Productname" name="Product-name" value="{{data2.Productname}}">
+    </div>
+
+        <div class="form-row">
+
+    <div class="form-group col-md-6">
+        <img src="{{data2.Productimage.url}}" width="100" height="100">
+      <label for="Productimage">product image</label>
+      <input type="file" class="form-control" id="Productimage" name="Product-image">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productprice">product price</label>
+      <input type="text" class="form-control" id="Productprice" name="Product-price" value="{{data2.Productprice}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Productofferprice">product offerprice</label>
+      <input type="text" class="form-control" id="Productofferprice" name="Product-offerprice" value="{{data2.Productofferprice}}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productweight">product weight</label>
+      <input type="text" class="form-control" id="Productweight" name="Product-weight" value="{{data2.Productweight}}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="Productdescription">product decription</label>
+      <input type="text" class="form-control" id="Productdescription" name="Product-description" value="{{data2.Productdescription}}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="ProductNumofpieces">product No.of pieces</label>
+      <input type="text" class="form-control" id="ProductNumofpieces" name="Product-Numofpieces" value="{{data2.ProductNumofpieces}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="ProductStockin">product Stock in</label>
+      <input type="text" class="form-control" id="ProductStockin" name="Product-Stockin" value="{{data2.ProductStockin}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="ProductStockout">product Stock out</label>
+      <input type="text" class="form-control" id="ProductStockout" name="Product-Stockout" value="{{data2.ProductStockout}}">
+    </div>
+
+
+
+            <div class="form-row">
+    <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+            </div>
+        </div>
+            </div>
+</form>
+</body>
+</html>

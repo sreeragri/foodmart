@@ -1,0 +1,38 @@
+{% include 'navbar.html' %}
+
+<h1>SubCategories</h1>
+<a href="/create_SubCategory/" class="btn btn-warning mb-2 float-end">+New SubCategory</a>
+<table class="table table-bordered">
+            <thead class="table-warning">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category</th>
+                <th scope="col">SubCategory</th>
+
+                <th scope="col">Image</th>
+
+                <th scope="col">Status</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for k in data1 %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                  <td>{{k.category.categoryname}}</td>
+                <td>{{k.SubCategoryname}}</td>
+                  {% if k.SubCategoryimage %}
+                  <td><img src="{{k.SubCategoryimage.url}}" width="100" height="100"></td>
+                  {%else%}
+                <td>No Image</td>
+                {%endif%}
+                <td>{{k.SubCategorystatus}}</td>
+                  <td><a href="/edit_SubCategory/{{k.id}}">Edit</a></td>
+      <td><a href="/delete_SubCategory/{{k.id}}">Delete</a></td>
+
+
+              </tr>
+            {% endfor %}
+
+            </tbody>
+          </table>

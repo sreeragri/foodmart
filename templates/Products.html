@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+
+<h1>Products</h1>
+<a href="/create_products/" class="btn btn-warning mb-2 float-end">+New Product</a>
+<table class="table table-bordered table-striped table-warning">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Price</th>
+      <th scope="col">Offer price</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Description</th>
+      <th scope="col">No.of pieces</th>
+      <th scope="col">Stock in</th>
+      <th scope="col">Stock out</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for m in data2 %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{m.Productname}}<br><span style="font-size:14px; color:Red;">{{m.category.categoryname}}/{{m.SubCategory.SubCategoryname}}</span></td>
+      {% if m.Productimage %}
+      <td><img src="{{m.Productimage.url}}" width="100" height="100"></td>
+      {% else %}
+      <td>No Image</td>
+      {%endif%}
+      <td>{{m.Productprice}}</td>
+      <td>{{m.Productofferprice}}</td>
+      <td>{{m.Productweight}}</td>
+      <td>{{m.Productdescription}}</td>
+      <td>{{m.ProductNumofpieces}}</td>
+      <td>{{m.ProductStockin}}</td>
+      <td>{{m.ProductStockout}}</td>
+
+
+      <td><a href="/delete_Products/{{m.id}}">Delete</a></td>
+      <td><a href="/edit_Products/{{m.id}}">Edit</a></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit subcategory</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<form action="/update_SubCategory/{{data1.id}}" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="Category">Category</label>
+      <select  class="form-control" id="Category" name="Category">
+          {% for i in data3 %}
+          <option value="{{i.id}}">{{i.categoryname}}</option>
+          {% endfor %}
+      </select>
+    </div>
+        </div>
+
+
+            <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="SubCategory name">SubCategory name</label>
+      <input type="text" class="form-control" id="SubCategory name" name="SubCategory-name" value="{{data1.SubCategoryname}}">
+    </div>
+
+        <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="img">SubCategory image</label>
+      <input type="file" class="form-control" id="img" name="SubCategory-image">
+    </div>
+ <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="SubCategory status">SubCategory status</label>
+      <select  class="form-control" id="SubCategory status" name="SubCategory-status">
+          <option>available</option>
+          <option>unavailable</option>
+      </select>
+    </div>
+        </div>
+            </div>
+  </div>
+
+
+
+
+
+    <div class="form-group col-md-4 ">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% include 'navbar.html' %}
+
+<h1>Delivery Partners</h1>
+<a href="/create_delivery_partner/" class="btn btn-warning mb-2 float-end">+New delivery partner</a>
+<table class="table table-bordered">
+            <thead class="table-warning">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Contact number</th>
+
+                <th scope="col">Age</th>
+
+                <th scope="col">Address</th>
+                <th scope="col">Vehicle details</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Password</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in DelPartner %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.Name}}</td>
+        <td>{{i.Contact}}</td>
+        <td>{{i.Age}}</td>
+        <td>{{i.Address}}</td>
+        <td>{{i.Vehicledetails}}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Password}}</td>
+
+      <td><a href="/edit_deliverypartner/{{i.id}}">Edit</a></td>
+      <td><a href="/delete_deliverypartner/{{i.id}}">Delete</a></td>
+    </tr>
+  {% endfor %}
+
+
+
+            </tbody>
+          </table>

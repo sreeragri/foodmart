@@ -1,0 +1,27 @@
+{% include 'navbar.html' %}
+
+<h1>Contact View</h1>
+<a href="/Contactpage/" class="btn btn-warning mb-2 float-end"></a>
+<table class="table table-bordered table-striped table-warning">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Subject</th>
+        <th scope="col">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in Data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.contactname}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.subject}}</td>
+        <td>{{i.message}}</td>
+
+  {% endfor %}
+
+  </tbody>
+</table>

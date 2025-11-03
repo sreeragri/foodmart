@@ -1,0 +1,31 @@
+{% include 'navbar.html' %}
+
+<h1>Categories</h1>
+<a href="/create_category/" class="btn btn-warning mb-2 float-end">+New Category</a>
+<table class="table table-bordered table-striped table-warning">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.categoryname}}</td>
+      {% if i.categoryimage %}
+      <td><img src="{{i.categoryimage.url}}" width="100" height="100"></td>
+      {% else %}
+      <td>No Image</td>
+      {%endif%}
+      <td>{{i.categorystatus}}</td>
+      <td><a href="/edit_category/{{i.id}}">Edit</a></td>
+      <td><a href="/delete_category/{{i.id}}">Delete</a></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>

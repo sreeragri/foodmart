@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit category</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<form action="/update_category/{{data.id}}" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+
+            <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="category name">Category name</label>
+      <input type="text" class="form-control" id="category name" name="category-name" value="{{data.categoryname}}">
+    </div>
+
+        <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="img">category image</label>
+      <input type="file" class="form-control" id="img" name="category-image" value="{{data.categoryimage}}">
+    </div>
+ <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="category status">Category status</label>
+      <select  class="form-control" id="category status" name="category-status" value="{{data.categorystatus}}">
+          <option>available</option>
+          <option>unavailable</option>
+      </select>
+    </div>
+        </div>
+            </div>
+  </div>
+    <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+</body>
+</html>

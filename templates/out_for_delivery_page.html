@@ -1,0 +1,37 @@
+{% include 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Out for delivery</title>
+</head>
+<body>
+
+<h2>Assign Delivery Partner to Orders</h2>
+
+
+<form method="post" action="{% url 'assign_delivery_partner' %}">
+    {% csrf_token %}
+    <p>Order ID: {{ order.id }}</p>
+
+
+    <input type="hidden" name="order_id" value="{{ orders.id }}">
+
+    <label for="partner_id">Select Delivery Partner:</label>
+    <select  name="partner_id" id="partner_id" required>
+        <option value="">-- Select a Partner --</option>
+        {% for partner in partners %}
+            <option value="{{ partner.id }}">{{ partner.Name }} ({{ partner.Contact }})</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Assign</button>
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
